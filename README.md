@@ -79,7 +79,7 @@ You will need a text editor as well. There are many options for you to choose. O
 
 ## Installing
 
-Empty *PeanutsJS* template does not include preconfigured routes.
+Empty *PeanutsJS* template does not include preconfigured routes. You will have to add follow the instructions for [adding a new page](./04-doc/add-new-page.md).
 
 To use *PeanutsJS* locally, first configure your environment. Please follow the next steps:
 
