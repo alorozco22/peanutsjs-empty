@@ -21,6 +21,7 @@ const cors = require('cors');
 const mysql = require('mysql');
 
 /* Requiring libraries: Sessions store (mySQL) */
+/*
 let dbOptions = {
 	database: process.env.DBNAME,
 	host: process.env.DBURL,
@@ -28,11 +29,13 @@ let dbOptions = {
 	user: process.env.DBUSER,
 	password: process.env.DBPASSWORD,
 };
+*/
 
-const session = require('express-session');
-const MySQLStore = require('express-mysql-session')(session);
-const sessionStore = new MySQLStore(dbOptions);
-const csurf = require('csurf'); // For CSRF protection in request forms
+
+//const session = require('express-session');
+//const MySQLStore = require('express-mysql-session')(session);
+//const sessionStore = new MySQLStore(dbOptions);
+//const csurf = require('csurf'); // For CSRF protection in request forms
 
 
 /* Requiring MVC modules */
@@ -60,6 +63,7 @@ app.set('views', path.join(__dirname, '02-views'));
 app.use(cors());
 
 /* Using middlewares: Sessions store (mySQL) */
+/*
 app.use(
 	session({
 	store: sessionStore,
@@ -70,6 +74,7 @@ app.use(
 	ephemeral: true
 	})
 );
+*/
 
 /* Ussing middlewares: initialize CSRF protection */
 app.use(csurf());

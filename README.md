@@ -79,38 +79,30 @@ You will need a text editor as well. There are many options for you to choose. O
 
 ## Installing
 
-*PeanutsJS* comes with some examples when you first clone it. The next are the **routes you can visit in the life server**: 
-
-* **/** - Default route, you will find an example page that uses database query. Every time you load it a random person is taken from the database, you will see their information.
-
-* **/signup** - You will find a form to register a new user. The user will have access to the restricted content.
-
-* **/login** - You will find a form to authenticate as a registered user. Only after authenticating, you will have access to the restricted content.
-
-* **/restricted** - An example restricted content page. You will see a button to logout as well.
-
-You can see the **[Life Demo](https://peanutsjs.herokuapp.com/)**.
+Empty *PeanutsJS* template does not include preconfigured routes.
 
 To use *PeanutsJS* locally, first configure your environment. Please follow the next steps:
 
-1. [Install mySQL server and Workbench](https://www.youtube.com/watch?v=u96rVINbAUI)
+1. [Install mySQL server and Workbench](https://www.youtube.com/watch?v=u96rVINbAUI) if you are using a database.
 1. Remember to download and install [Node.js](https://nodejs.org/).
 1. You may need [git](https://git-scm.com/downloads) as well to clone the repository, and eventually to deploy to Heroku.
 
-Next, clone *PeanutsJS* repository into your computer:
+Next, clone empty *PeanutsJS* repository into your computer:
 
 ```
-git clone https://github.com/alorozco22/peanutsjs.git
+git clone https://github.com/alorozco22/peanutsjs-empty.git
 ```
 
 Now, place your command prompt inside your *PeanutsJS* directory and install the required dependencies:
 
 ```
-cd peanutsjs
+cd peanutsjs-empty
 npm install
 ```
 
-You may have to configure your database connection. Please **create a .env file** in the root folder of your server. Edit the contents of the file following the [example for a dotEnv file](Example-dotEnv.txt).
+You may have to configure your database connection if you want to use it. Please **create a .env file** in the root folder of your server. Edit the contents of the file following the [example for a dotEnv file](Example-dotEnv.txt).
+
+In the 01-main.js file you should uncomment the correspondent lines related to database and session storage.
 
 To allow connections to the database via Node.js, you may have to execute the next query within your workbench:
 
