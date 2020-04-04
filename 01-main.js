@@ -20,6 +20,17 @@ const path = require('path');
 const cors = require('cors');
 const mysql = require('mysql');
 
+
+//IF YOU WANT TO CONFIGURE SOCKET.IO
+/*
+let http = require('http').createServer(app);
+let io = require('socket.io')(http);
+const UUID = require('node-uuid');
+*/
+
+
+
+
 /* Requiring libraries: Sessions store (mySQL) */
 /*
 let dbOptions = {
@@ -79,6 +90,39 @@ app.use(
 /* Ussing middlewares: initialize CSRF protection */
 app.use(csurf());
 
+
+
+//IF YOU WANT TO CONFIGURE SOCKET.IO
+//Socket.io will call this function when a client connects, 
+//So we can send that client a unique ID we use so we can 
+//maintain the list of players.
+// Thanks to http://buildnewgames.com/real-time-multiplayer/
+/*
+io.on('connection', function (client) {
+
+	let itsRoom = 'unica';
+
+	client.join(itsRoom);
+    //Generate a new UUID, looks something like 
+    //5b2ca132-64bd-4513-99da-90e838ca47d1
+    //and store this on their socket/connection
+	client.userid = UUID();
+
+    //tell the player they connected, giving them their id
+	client.emit('onconnected', { id: client.userid, room:itsRoom} );
+
+    //Useful to know when someone connects
+	console.log('\t socket.io:: player ' + client.userid + ' connected');
+
+    //When this client disconnects
+	client.on('disconnect', function () {
+    	//Useful to know when someone disconnects
+    	console.log('\t socket.io:: client disconnected ' + client.userid );
+	}); //client.on disconnect
+
+}); //sio.sockets.on connection
+*/
+
 /* Initializing modules and listening to requests */
 model.init_models(mysql)
 .then(data=>{
@@ -91,7 +135,7 @@ model.init_models(mysql)
 })
 .then(data=>{
 	console.log(data);
-	app.listen(port);
+	http.listen(port);
 	console.log('::Main:: Ready! Listening on port: '+port);
 }, err=>{
 	console.log(err);
